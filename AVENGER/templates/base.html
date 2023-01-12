@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AVENGER</title>
+    <style>
+    .titulo {
+        text-align: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 36px;
+    }
+    </style>
+</head>
+<body>
+    <h1 class="titulo">A<span style="color:blue">VENG</span>ER 1.0</h1>
+    <h2>{% block titulo %}{% endblock %}</h2>
+    <h3>{% block subtitulo %} Accede a tu cuenta {% endblock %}</h3>
+
+    {% block Contenido %}
+    {% endblock %}
+        
+</body>
+</html>

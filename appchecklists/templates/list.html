@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Checklists</title>
+    <style>
+        nav a{
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            padding: 15px;
+            flex: block;
+            background-color: rgb(196, 226, 227);
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 24px;
+        }
+        nav a:hover{
+            background-color: rgb(147, 147, 197);
+            transition: background-color 0.5s, font-style 3s;
+            
+        }
+        h1 {
+            text-align: center;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 36px;
+        }
+    </style>
+</head>
+<body>
+    <h1>A<span style="color:blue">VENG</span>ER 1.0</h1>
+    <nav>
+        <a href="checklists/SSARX13D.html">SSAR</a>
+        <a href="checklists/SARX13D.html">SAR</a>
+        <a href="checklists/410 SAOCOM1A.html">SAOCOM 1A</a>
+        <a href="#">SAOCOM 1B</a>
+        <a href="{% url 'metopb' %}">METOP B</a>
+        <a href="{% url 'metopc' %}">METOP C</a>
+        <a href="{% url 'aqua' %}">AQUA</a>
+        <a href="{% url 'terra' %}">TERRA</a>
+        <a href="{% url 'landsat8' %}">LANDSAT 8</a>
+        <a href="{% url 'spot6' %}">SPOT 6</a>
+        <a href="{% url 'spot7' %}">SPOT 7</a>
+    </nav>
+    
+</body>
+</html>

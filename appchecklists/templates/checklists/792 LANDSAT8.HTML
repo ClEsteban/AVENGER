@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>792 LANDSAT8</title>
+    <style>
+        table, th, td {border: 2px solid black;border-collapse: collapse;}
+    </style>
+</head>
+<body>
+    <h1>Atencion de Pasada Landsat 8 con Antena de 13m (Config 792)</h1>
+    <form>
+        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
+        Hora: <input tyoe="time" name="hora"/>
+        <hr>
+        Satelite: <input value="LANDSAT 8" type="text" name="satelite"/>
+        Orbita: <input type="number" name="orbita"/>
+        <hr>
+        Operador: <input type="text" name="Operador"/>
+        <hr>       
+        <table style="width: 60%;">
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PREPASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>VER</td>
+                <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
+                <td><input type="checkbox" name="1"/></td>
+            </tr>                
+            <tr>
+                <td>02</td>
+                <td>VER</td>
+                <td>Verificar que se ejcuten correctamente las acividades del PEC</td>
+                <td><input type="checkbox" name="2"/></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>VER</td>
+                <td>Verificar que la configuracion de <b>R-XDWNCIF01</b> sea:<br>
+                Frecuencia Banda X: <b>8200.5</b><br>
+                </td>
+                <td><input type="checkbox" name="3"/></td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>VER</td>
+                <td>Verificar la Matriz <b>R-IFMTX01</b> sea:<br>
+                    <li>IN: 02 - OUT: 08</li>
+                </td>
+                <td><input type="checkbox" name="4"/></td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>VER</td>
+                <td>Verificar que el demodulador <b>R-DEMKTSA01</b> este configurado para la mision <b>LANDSAT-8</b></td>
+                <td><input type="checkbox" name="5"/></td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>VER</td>
+                <td>Verificar minutos antes del AOS que empiece la ingestion en <b>R-DEMKTSA01</b>
+                </td>
+                <td><input type="checkbox" name="6"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>07</td>
+                <td>VER</td>
+                <td>Verificar que en AOS se empiece a mover la antena y comience la recepcion de senal, mirar
+                    analizador de espectro.
+                </td>
+                <td><input type="checkbox" name="7"/></td>
+            </tr>
+            <tr>
+                <td>08</td>
+                <td>VER</td>
+                <td>Verificar en el demodulador <b>R-DEMKTSA01</b> el estado de lock en verde</td>
+                <td><input type="checkbox" name="8"/></td>
+            </tr>
+            <tr>
+                <td>09</td>
+                <td>VER</td>
+                <td>Verificar que <b>R-DEMKTSA01</b> comience a ingestar correctamente
+                    y se generan archivos en la carpeta data/cfdp
+                </td>
+                <td><input type="checkbox" name="9"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE POSTPASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>DO</td>
+                <td>Realizar cambio de TILT en caso de ser ncesario</td>
+                <td><input type="checkbox" name="10"/></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>VER</td>
+                <td>Verificar que minutos despues del LOS se cargue la configuracion
+                    default en <b>R-DEMKTSA01</b>
+                </td>
+                <td><input type="checkbox" name="11"/></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>DO</td>
+                <td>Completar la hoja de ruta de la pasada</td>
+                <td><input type="checkbox" name="12"/></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <th>REPORTE DE RESULTADO DEL PROCEDIMIENTO</th>
+                <td></td>
+            </tr>
+        </table>
+        <hr>
+        <li>
+        EXITOSO<input type="checkbox" name="exitoso"/>
+        INCIDENTE<input type="number" name="incidente"/>
+        </li>
+        <hr>
+        <label for="comentario">Comentarios</label>
+        <br>
+        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        <hr>
+        <button type="submit" value="submit">ENVIAR</button>
+    </form>    
+</body>
+</html>

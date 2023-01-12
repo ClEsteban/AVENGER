@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>341 TERRA</title>
+    <style>
+        table, th, td {border: 2px solid black;border-collapse: collapse;}
+    </style>
+</head>
+<body>
+    <h1>Atencion de Pasada TERRA con Antena de 3,6m SA (Config 341)</h1>
+    <form>
+        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
+        Hora: <input tyoe="time" name="hora"/>
+        <hr>
+        Satelite: <input value="TERRA" type="text" name="satelite"/>
+        Orbita: <input type="number" name="orbita"/>
+        <hr>
+        Operador: <input type="text" name="Operador"/>
+        <hr>       
+        <table style="width: 60%;">
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PREPASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>VER</td>
+                <td>15 minutos antes del AOS verificar que la pasada este cargada de forma automatica 
+                    en el GSC de la antena de 3,6SA, caso contrario cargarla</td>
+                <td><input type="checkbox" name="1"/></td>
+            </tr>                
+            <tr>
+                <td>02</td>
+                <td>VER</td>
+                <td>Verificar que el horario de AOS del GSC coincida con los de la planilla
+                    de planificacion
+                </td>
+                <td><input type="checkbox" name="2"/></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>VER</td>
+                <td>Verificar que la configuracion del DownConverter de banda X <b>R-DWCDTAB01</b>:<br>
+                Frecuencia: <b>2487.5 MHz</b><br>
+                Atenuacion: <b>20dB</b>
+                </td>
+                <td><input type="checkbox" name="3"/></td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>VER</td>
+                <td>Verificar unos minutos antes del AOS que la pasada este cargada en <b>INU05 e INU07</b>
+                </td>
+                <td><input type="checkbox" name="4"/></td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>VER</td>
+                <td>Verificar que el demodulador (<b>R-DEMINSA02</b>) este configurado para la mision <b>TERRA</b></td>
+                <td><input type="checkbox" name="5"/></td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>VER</td>
+                <td>Verificar la Matriz <b>R-IFMTX01</b>:<br>
+                    <li>IN: 06 - OUT: 03</li>
+                </td>
+                <td><input type="checkbox" name="6"/></td>
+            </tr>
+            <tr>
+                <td>07</td>
+                <td>VER</td>
+                <td>Verificar que se ejecuten las configuraciones cargadas en el PEC 
+                    para la pasada asociada
+                </td>
+                <td><input type="checkbox" name="7"/></td>
+            </tr>
+            <tr>
+                <td>08</td>
+                <td>VER</td>
+                <td>Verificar la configuracion de las matrices ECL de acuerdo a lo planificado:
+                    <b>R-ECLMTX01:</b><br>
+                    <li>OUT: 31 - IN: 21</li>
+                    <li>OUT: 32 - IN: 22</li>  
+                    <b>R-ECLMTX02:</b><br>
+                    <li>OUT: 23 - IN: 31</li>
+                    <li>OUT: 24 - IN: 32</li>
+                    <li>OUT: 21 - IN: 31</li>
+                    <li>OUT: 22 - IN: 32</li>
+                </td>
+                <td><input type="checkbox" name="8"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>09</td>
+                <td>VER</td>
+                <td>Verificar que en AOS se empiece a mover la antena y comience la recepcion de senal, mirar
+                    analizador de espectro.
+                </td>
+                <td><input type="checkbox" name="9"/></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>VER</td>
+                <td>Verificar en el demodulador R-DEMINSA02 el estado de lock en verde</td>
+                <td><input type="checkbox" name="10"/></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>VER</td>
+                <td>Verificar que INU5 e INU7 comiencen a ingestar correctamente</td>
+                <td><input type="checkbox" name="11"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE POSTPASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>DO</td>
+                <td>Completar la hoja de ruta de la pasada</td>
+                <td><input type="checkbox" name="12"/></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>VER</td>
+                <td>Verificar que la antena de 3,6SA se va a Stow</td>
+                <td><input type="checkbox" name="13"/></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <th>REPORTE DE RESULTADO DEL PROCEDIMIENTO</th>
+                <td></td>
+            </tr>
+        </table>
+        <hr>
+        <li>
+        EXITOSO<input type="checkbox" name="exitoso"/>
+        INCIDENTE<input type="number" name="incidente"/>
+        </li>
+        <hr>
+        <label for="comentario">Comentarios</label>
+        <br>
+        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        <hr>
+        <button type="submit" value="submit">ENVIAR</button>
+    </form>    
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SAOCOM 1A 410</title>
+    <style>
+        table, th, td {border: 2px solid black;border-collapse: collapse;}
+    </style>
+</head>
+<body>
+    <h1>Pasada de SAOCOM 1A con antena de 5.4m (Config 410)</h1>
+    <form>
+        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
+        Hora: <input tyoe="time" name="hora"/>
+        <hr>
+        Satelite: <input value="SAOCOM 1A" type="text" name="satelite"/>
+        Orbita: <input type="number" name="orbita"/>
+        <hr>
+        Operador: <input type="text" name="Operador"/>
+        <hr>       
+        <table style="width: 60%;">
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PREPASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>VER</td>
+                <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
+                <td><input type="checkbox" name="1"/></td>
+            </tr>
+            <tr>
+                <td>02</td>
+                <td>VER</td>
+                <td>
+                    Verificar que la pasada se encuentre cargada en la antena de 5.4m
+                    (desde ViaControl Portal)
+                </td>
+                <td><input type="checkbox" name="2"/></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>VER</td>
+                <td>
+                    Verificar que el HPA de la antena de 5.4m se encuentra
+                    encendido y sin fallas
+                </td>
+                <td><input type="checkbox" name="3"/></td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>TALK</td>
+                <td>
+                    ETC-MOC: Verificar los horarios de AOS y LOS
+                </td>
+                <td><input type="checkbox" name="4"/></td>
+            </tr>           
+            <tr>
+                <td>05</td>
+                <td>VER</td>
+                <td>
+                    Notificar al MOC de SAOCOM que la antena esta
+                    configurada y esperando la pasada
+                </td>
+                <td><input type="checkbox" name="5"/></td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>VER</td>
+                <td>
+                    Verificar que la polaridad de transmision se RHCP
+                </td>
+                <td><input type="checkbox" name="6"/></td>
+            </tr>
+            <tr>
+                <td>07</td>
+                <td>VER</td>
+                <td>
+                    Verificar la Matriz de Banda S (<b>R-SMTX03</b>):<br>
+                    UpLink S Band:<br>
+                    <li>IN: 05 - OUT: 02</li>
+                </td>
+                <td><input type="checkbox" name="7"/></td>
+            </tr>
+            <tr>
+                <td>08</td>
+                <td>VER</td>
+                <td>
+                    Verificar la Matriz de Banda S (<b>R-SMTX01</b>):<br>
+                    Dw RHCP S-Band:<br>
+                    <li>IN: 03 - OUT: 07</li>
+                    Dw LHCP S-Band:<br>
+                    <li>IN: 07 - OUT: 08</li>
+                </td>
+                <td><input type="checkbox" name="8"/></td>
+            </tr>
+            <tr>
+                <td>09</td>
+                <td>VER</td>
+                <td>
+                    Verificar la configuracion de los up converters de ViaSat en
+                    antena de 5.4m:<br>
+                    <li>Frecuncia: <b>2076.939 MHz</b></li>
+                </td>
+                <td><input type="checkbox" name="9"/></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>VER</td>
+                <td>
+                    Verificar la configuracion de los down converters de ViaSat en
+                    antena de 5.4m:<br>
+                    <li>Frecuncia: <b>2255.5 MHz</b></li>
+                </td>
+                <td><input type="checkbox" name="10"/></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>VER</td>
+                <td>
+                    Verificar la configuracion de los down converters de Banda X:<br>
+                    <li>X-Band LHC D/C: <b>8165.5 MHz</b></li>
+                    <li>X-Band RHC D/C: <b>8165.5 MHz</b></li>
+                </td>
+                <td><input type="checkbox" name="11"/></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>VER</td>
+                <td>
+                    Verificar la correcta configuracion de la Matriz <b>R-IFMTX02</b>:<br>
+                    <b>A5.4 HDR SAOCOM LINK1:</b><br>
+                    <li>IN: 01 - OUT: 05</li>
+                    <b>A5.4 HDR SAOCOM LINK2:</b><br>
+                    <li>IN: 01 - OUT: 07</li>
+                </td>
+                <td><input type="checkbox" name="12"/></td>
+            </tr>             
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>TALK</td>
+                <td>
+                    Verificar la recepcion de senal y notificar al MOC
+                </td>
+                <td><input type="checkbox" name="13"/></td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>VER</td>
+                <td>
+                    Observar la recepcion de Banda X en el analizador de espectros
+                    , e informar al MOC
+                </td>
+                <td><input type="checkbox" name="14"/></td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>TALK</td>
+                <td>
+                    A lo 5 grados de elevacion en ascenso notificar al MOC
+                </td>
+                <td><input type="checkbox" name="15"/></td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>TALK</td>
+                <td>
+                    Cuando la antena se acerque a los 5 grados de elevacion
+                    descendente notificar
+                </td>
+                <td><input type="checkbox" name="16"/></td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>TALK</td>
+                <td>
+                    Cuando la antena este cerca de LOS de la pasada notificar
+                </td>
+                <td><input type="checkbox" name="17"/></td>
+            </tr>           
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE POSTPASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>VER</td>
+                <td>
+                    Verificar la generacion de reportes AMD y METEO
+                </td>
+                <td><input type="checkbox" name="18"/></td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>VER</td>
+                <td>
+                    Verificar que la antena de 5.4m se va a stow
+                </td>
+                <td><input type="checkbox" name="19"/></td>
+            </tr>            
+            <tr>
+                <td></td>
+                <td></td>
+                <th>REPORTE DE RESULTADO DEL PROCEDIMIENTO</th>
+                <td></td>
+            </tr>
+        </table>
+        <hr>
+        <li>
+        EXITOSO<input type="checkbox" name="exitoso"/>
+        INCIDENTE<input type="number" name="incidente"/>
+        </li>
+        <hr>
+        <label for="comentario">Comentarios</label>
+        <br>
+        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        <hr>
+        <button type="submit" value="submit">ENVIAR</button>
+    </form>    
+</body>
+</html>

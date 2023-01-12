@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>345 AQUA</title>
+    <style>
+        table, th, td {border: 2px solid black;border-collapse: collapse;}
+    </style>
+</head>
+<body>
+    <h1>Atencion de Pasada AQUA con Antena de 3,6m SA (Config 341)</h1>
+    <form>
+        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
+        Hora: <input tyoe="time" name="hora"/>
+        <hr>
+        Satelite: <input value="AQUA" type="text" name="satelite"/>
+        Orbita: <input type="number" name="orbita"/>
+        <hr>
+        Operador: <input type="text" name="Operador"/>
+        <hr>       
+        <table style="width: 60%;">
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PREPASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>01</td>
+                <td>VER</td>
+                <td>
+                    Verificar que la pasada este cargada en el PEC
+                </td>
+                <td><input type="checkbox" name="1"/></td>
+            </tr>                
+            <tr>
+                <td>02</td>
+                <td>DO</td>
+                <td>
+                    Actualizar lista de TLE en antena 3,6 Scientific Atlanta
+                </td>
+                <td><input type="checkbox" name="2"/></td>
+            </tr>
+            <tr>
+                <td>03</td>
+                <td>VER</td>
+                <td>
+                    Verificar el preposicionamiento de la antena
+                    de 3.6m SA
+                </td>
+                <td><input type="checkbox" name="3"/></td>
+            </tr>
+            <tr>
+                <td>04</td>
+                <td>VER</td>
+                <td>
+                    Verificar la configuracion del demodulador (<b>R-DEMKTSA02</b>)
+                </td>
+                <td><input type="checkbox" name="4"/></td>
+            </tr>
+            <tr>
+                <td>05</td>
+                <td>VER</td>
+                <td>
+                    Verificar que la configuracion del DownConverter de Banda X (<b>R-DWCDTAB01</b>)
+                    sea:<br>
+                    Frecuencia: <b>2540.000 MHz</b><br>
+                    Atenuacion: <b>10 dB</b>
+                </td>
+                <td><input type="checkbox" name="5"/></td>
+            </tr>
+            <tr>
+                <td>06</td>
+                <td>VER</td>
+                <td>
+                    Verificar la planificacion en los sistemas de ingestion
+                </td>
+                <td><input type="checkbox" name="6"/></td>
+            </tr>
+            <tr>
+                <td>07</td>
+                <td>VER</td>
+                <td>
+                    Verificar la configuracion de la matriz <b>R-IFMTX01</b><br>
+                    <li>IN: 06 - OUT: 07</li>
+                </td>
+                <td><input type="checkbox" name="7"/></td>
+            </tr>
+            <tr>
+                <td>08</td>
+                <td>VER</td>
+                <td>Verificar la configuracion de la matriz <b>R-ECLMTX02:</b><br>                    
+                    <li>IN: 06 - OUT: 22</li>
+                    <li>IN: 05 - OUT: 21</li>
+                </td>
+                <td><input type="checkbox" name="8"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE PASADA</th>
+                <td></td>
+            </tr>
+            <tr>
+                <td>09</td>
+                <td>VER</td>
+                <td>Verificar que en AOS se empiece a mover la antena y comience la recepcion de senal, mirar
+                    analizador de espectro.
+                </td>
+                <td><input type="checkbox" name="9"/></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>VER</td>
+                <td>
+                    Verificar que hay senal de banda X
+                    en el analizador de espectro de la antena de 3.6m
+                </td>
+                <td><input type="checkbox" name="10"/></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>VER</td>
+                <td>Verificar que el demodulador Kratos MMR2 este en lock</td>
+                <td><input type="checkbox" name="11"/></td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>VER</td>
+                <td>Verificar que los sistemas de ingestion esten en estado lock</td>
+                <td><input type="checkbox" name="12"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>ACTIVIDADES DE POSTPASADA</th>
+                <td></td>
+            </tr>            
+            <tr>
+                <td>13</td>
+                <td>VER</td>
+                <td>Verificar que la antena de 3,6SA se va a Stow</td>
+                <td><input type="checkbox" name="13"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <th>REPORTE DE RESULTADO DEL PROCEDIMIENTO</th>
+                <td></td>
+            </tr>
+        </table>
+        <hr>
+        <li>
+        EXITOSO<input type="checkbox" name="exitoso"/>
+        INCIDENTE<input type="number" name="incidente"/>
+        </li>
+        <hr>
+        <label for="comentario">Comentarios</label>
+        <br>
+        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        <hr>
+        <button type="submit" value="submit">ENVIAR</button>
+    </form>    
+</body>
+</html>
