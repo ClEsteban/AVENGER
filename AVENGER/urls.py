@@ -21,6 +21,7 @@ from applogin.views import *
 from appchecklists.views import *
 
 urlpatterns = [
+    path('', vista_inicio, name="AVENGER-inicio"),
     path('admin/', admin.site.urls),
     path('', include('applogin.urls')),
     path('', include('appchecklists.urls')),
