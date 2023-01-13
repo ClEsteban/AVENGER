@@ -10,6 +10,22 @@ def vista_lista(request):
     return render(request, "list.html")
 
 @login_required
+def vista_sarsubmenu(request):
+    return render(request, "SARsubmenu.html")
+
+@login_required
+def vista_ssarsubmenu(request):
+    return render(request, "SSARsubmenu.html")
+
+@login_required
+def vista_saocom1amenu(request):
+    return render(request, "SAOCOM1Amenu.html")
+
+@login_required
+def vista_saocom1bmenu(request):
+    return render(request, "SAOCOM1Bmenu.html")
+
+@login_required
 def vista_metopb(request):
     return render(request, "checklists/255 METOPB.html")
 
@@ -36,3 +52,35 @@ def vista_spot6(request):
 @login_required
 def vista_spot7(request):
     return render(request, "checklists/425 SPOT7.html")
+
+@login_required
+def vista_sarx(request):
+    return render(request, "checklists/SARX13D.html")
+
+@login_required
+def vista_sars(request):
+    return render(request, "checklists/SARTTC13D.html")
+
+@login_required
+def vista_ssarx(request):
+    return render(request, "checklists/SSARX13D.html")
+
+@login_required
+def vista_ssars(request):
+    return render(request, "checklists/SSARTTC13D.html")
+
+@login_required
+def vista_saocom1aetc(request):
+    return render(request, "checklists/410 SAOCOM1A.html")
+
+@login_required
+def vista_saocom1betc(request):
+    return render(request, "checklists/411 SAOCOM1B.html")
+
+@login_required
+def vista_saocom1aett(request):
+    return render(request, "checklists/SAOCOM1AETT.html")
+
+@login_required
+def vista_saocom1bett(request):
+    return render(request, "checklists/SAOCOM1BETT.html")
