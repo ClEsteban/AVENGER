@@ -6,7 +6,7 @@ from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
-    path('', vista_lista, name="avenger-lista"),
+    path('lista/', vista_lista, name="avenger-lista"),
     path('255METOPB/', vista_metopb, name="metopb"),
     path('255METOPB/', vista_metopc, name="metopc"),
     path('345AQUA/', vista_aqua, name="aqua"),

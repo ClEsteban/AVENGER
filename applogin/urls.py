@@ -6,5 +6,5 @@ from applogin.views import *
 from appchecklists.views import *
 
 urlpatterns = [
-    path('', vista_login, name="AVENGER-login"),
+    path('applogin/', vista_login, name="AVENGER-login"),
 ]
