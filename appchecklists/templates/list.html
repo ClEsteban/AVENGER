@@ -24,6 +24,13 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 36px;
         }
+        .logout {
+            background-color:rgb(193, 133, 133)
+        }
+        .logout:hover {
+            background-color:rgb(205, 70, 70);
+            transition: background-color 0.5s, font-style 3s;
+        }
     </style>
 </head>
 <body>
@@ -33,13 +40,14 @@
         <a href="{% url 'sar-submenu' %}">SAR</a>
         <a href="{% url 'saocom1a-menu' %}">SAOCOM 1A</a>
         <a href="{% url 'saocom1b-menu' %}">SAOCOM 1B</a>
-        <a href="{% url 'metopb' %}">METOP B</a>
-        <a href="{% url 'metopc' %}">METOP C</a>
-        <a href="{% url 'aqua' %}">AQUA</a>
-        <a href="{% url 'terra' %}">TERRA</a>
-        <a href="{% url 'landsat8' %}">LANDSAT 8</a>
-        <a href="{% url 'spot6' %}">SPOT 6</a>
-        <a href="{% url 'spot7' %}">SPOT 7</a>
+        <a target="_blank" href="{% url 'metopb' %}">METOP B</a>
+        <a target="_blank" href="{% url 'metopc' %}">METOP C</a>
+        <a target="_blank" href="{% url 'aqua' %}">AQUA</a>
+        <a target="_blank" href="{% url 'terra' %}">TERRA</a>
+        <a target="_blank" href="{% url 'landsat8' %}">LANDSAT 8</a>
+        <a target="_blank" href="{% url 'spot6' %}">SPOT 6</a>
+        <a target="_blank" href="{% url 'spot7' %}">SPOT 7</a>
+        <a class="logout" href="{% url 'AVENGER-logout' %}">LOGOUT</a>
     </nav>
     
 </body>
