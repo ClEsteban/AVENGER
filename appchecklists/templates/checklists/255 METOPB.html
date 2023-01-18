@@ -12,8 +12,8 @@
         <!--Fecha: <input type="date" name="fecha"/>--> <!--Fecha, Hora y operador deberian ser automaticas-->
         <!--Hora: <input tyoe="time" name="hora"/>-->
         <hr>
-        Satelite: <input value="METOP-B" type="text" name="satelite"/>
-        Orbita: <input type="number" name="orbita"/>
+        Satelite: {{form.satelite}}
+        Orbita: {{form.orbita}}
         <hr>
         Operador: {{request.user.username}}
         <hr>       
@@ -28,14 +28,14 @@
                 <td>01</td>
                 <td>VER</td>
                 <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
-                <td><input type="checkbox" name="_01chk"/></td>
+                <td>{{form.a01ckb}}</td>
             </tr>
             <tr>
                 <td>02</td>
                 <td>VER</td>
                 <td>En la antena YANTAI verificar que la ventana "Orbit Control Engine"
                     diga: "METOP-B" is remote selected</td>
-                <td><input type="checkbox" name="_02chk"/></td>
+                <td>{{form.a02ckb}}</td>
             </tr>
             <tr>
                 <td>03</td>
@@ -43,7 +43,7 @@
                 <td>En la antena YANTAI verificar que la ventana "Antenna Control System"
                     que "AUTO TRK" este seleccionado
                 </td>
-                <td><input type="checkbox" name="_03chk"/></td>
+                <td>{{form.a03ckb}}</td>
             </tr>                
             <tr>
                 <td>04</td>
@@ -52,7 +52,7 @@
                     antesde del AOS que este cargada la configuracion <b>ECL_IN_METOPB_V1</b>
                     y el nombre del archivo a ingestar con la fecha y nombre correcto 
                 </td>
-                <td><input type="checkbox" name="_04chk"/></td>
+                <td>{{form.a04ckb}}</td>
             </tr>
             <tr>
                 <td>05</td>
@@ -60,7 +60,7 @@
                 <td>Verificar desde el panel frontal del demodulador Quorum (ubicado en Rack 9)
                     que el mismo se encuentre configurado para METOP-B(METP)
                 </td>
-                <td><input type="checkbox" name="_05chk"/></td>
+                <td>{{form.a05ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -75,7 +75,7 @@
                     "Antenna Control System" que los valores visibles de azimut y elevacion
                     varien de manera secuencial
                 </td>
-                <td><input type="checkbox" name="_06chk"/></td>
+                <td>{{form.a06ckb}}</td>
             </tr>
             <tr>
                 <td>07</td>
@@ -84,7 +84,7 @@
                     Verificar desde el panel frontal del demodulador Quorum (ubicado en el rack 9)
                     que el mismo se encuentre enganchado (FR)
                 </td>
-                <td><input type="checkbox" name="_07chk"/></td>
+                <td>{{form.a07ckb}}</td>
             </tr>
             <tr>
                 <td>08</td>
@@ -92,7 +92,7 @@
                 <td>
                     Verificar en R-DEMKTSA02 que el modulo Frame Sync 2l este en verde.
                 </td>
-                <td><input type="checkbox" name="_08chk"/></td>
+                <td>{{form.a08ckb}}</td>
             </tr>
             <tr>
                 <td>09</td>
@@ -101,7 +101,7 @@
                     Verificar que en el status del modulo Raw Achiver 2l
                     se incremente el contador
                 </td>
-                <td><input type="checkbox" name="_09chk"/></td>
+                <td>{{form.a09ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -113,13 +113,13 @@
                 <td>10</td>
                 <td>VER</td>
                 <td>Verificar que el equipo R-DEMKSTA02 carga la configuracion <b>default</b> </td>
-                <td><input type="checkbox" name="_10chk"/></td>
+                <td>{{form.a10ckb}}</td>
             </tr>
                         <tr>
                 <td>11</td>
                 <td>VER</td>
                 <td>Verificar que la antena YANTAI se fue a stow</td>
-                <td><input type="checkbox" name="_11chk"/></td>
+                <td>{{form.a11ckb}}</td>
             </tr>
 
             <tr>
@@ -131,13 +131,13 @@
         </table>
         <hr>
         <li>
-        EXITOSO<input type="checkbox" name="exitoso"/>
-        INCIDENTE<input type="number" name="incidente"/>
+        EXITOSO{{form.exitoso}}
+        INCIDENTE{{form.incidente}}
         </li>
         <hr>
         <label for="comentario">Comentarios</label>
         <br>
-        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        {{form.comentario}}
         <hr>
         <button type="submit" value="submit">ENVIAR</button>
     </form>    

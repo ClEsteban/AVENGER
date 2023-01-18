@@ -5,6 +5,7 @@ from django.template import Template, Context, loader
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from appchecklists.models import Checklist
+from appchecklists.forms import PasadaFormulario
 
 @login_required
 def vista_lista(request):
@@ -28,7 +29,9 @@ def vista_saocom1bmenu(request):
 
 @login_required
 def vista_metopb(request):
-    return render(request, "checklists/255 METOPB.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/255 METOPB.html", context)
 
 @login_required
 def vista_metopc(request):
@@ -89,16 +92,30 @@ def vista_saocom1bett(request):
 @login_required
 def vista_guardar_check(request):
     if request.method == 'POST':
-        check = Checklist(
-            request.POST["satelite"],
-            request.POST["orbita"],
-            request.POST["exitoso"],
-            request.POST["incidente"],
-            request.POST["comentario"],
-            request.POST["_01chk"],request.POST["_02chk"],request.POST["_03chk"],
-            request.POST["_04chk"],request.POST["_05chk"],request.POST["_06chk"],
-            request.POST["_07chk"],request.POST["_08chk"],request.POST["_09chk"],
-            request.POST["_10chk"],request.POST["_11chk"],)
-        check.save()
-        return render(request, "check_guardar.html")
-    return render(request, "list.html")
+        formulario = PasadaFormulario(request.POST)
+        print(formulario)
+        if formulario.is_valid:
+            informacion = formulario.cleaned_data            
+            check = Checklist(
+            satelite=informacion["satelite"],
+            orbita=informacion["orbita"],
+            exitoso=informacion["exitoso"],
+            incidente=informacion["incidente"],
+            comentario=informacion["comentario"],
+            a01ckb=informacion["a01ckb"],
+            a02ckb=informacion["a02ckb"],
+            a03ckb=informacion["a03ckb"],
+            a04ckb=informacion["a04ckb"],
+            a05ckb=informacion["a05ckb"],
+            a06ckb=informacion["a06ckb"],
+            a07ckb=informacion["a07ckb"],
+            a08ckb=informacion["a08ckb"],
+            a09ckb=informacion["a09ckb"],
+            a10ckb=informacion["a10ckb"],
+            a11ckb=informacion["a11ckb"],           
+            )
+            check.save()
+            return render(request, "check_guardar.html")
+    else:
+        formulario = PasadaFormulario()
+    return render(request, "check_guardar.html", {"formulario":formulario})
