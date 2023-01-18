@@ -8,7 +8,7 @@ class Checklist(models.Model):
     fecha = models.DateTimeField(auto_now_add=True)
     satelite = models.CharField(max_length=50)
     orbita = models.IntegerField()
-    operador = models.ForeignKey(User, on_delete=models.CASCADE)
+    operador = models.ForeignKey(User, on_delete=models.CASCADE,blank=True, null=True)
     incidente = models.IntegerField(blank=True, null=True)
     comentario = models.TextField(max_length=250)
     exitoso = models.BooleanField(blank=True, null=True)
