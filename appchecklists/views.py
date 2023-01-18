@@ -6,6 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from appchecklists.models import Checklist
 from appchecklists.forms import PasadaFormulario
+from django.contrib.auth.models import User
+
 
 @login_required
 def vista_lista(request):
@@ -96,7 +98,7 @@ def vista_guardar_check(request):
         print(formulario)
         if formulario.is_valid:
             informacion = formulario.cleaned_data            
-            check = Checklist(
+            check = Checklist(            
             satelite=informacion["satelite"],
             orbita=informacion["orbita"],
             exitoso=informacion["exitoso"],
