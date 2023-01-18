@@ -4,6 +4,9 @@ from datetime import datetime
 from django.template import Template, Context, loader
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from appchecklists.forms import *
+from appchecklists.models import *
+
 
 @login_required
 def vista_lista(request):
@@ -27,7 +30,23 @@ def vista_saocom1bmenu(request):
 
 @login_required
 def vista_metopb(request):
-    return render(request, "checklists/255 METOPB.html")
+    if request.method == "POST":
+        formulario = PasadaFormulario(request.POST)
+
+        #validamos que el formulario no tenga problemas
+        if formulario.is_valid():
+        #recuperamos los datos del atributo cleaned_data
+            data = formulario.cleaned_data
+
+            checklist = Checklist(satelite = data["satelite"], orbita = data["orbita"], incidente = data["incidente"], comentario = data["comentario"], exitoso = data["exitoso"])
+
+            checklist.save()
+ 
+    formulario = PasadaFormulario()
+
+    contexto = {"formulario": formulario}
+    #return render(request, "crear_pasada.html", contexto)
+    return render(request, "checklists/255 METOPB.html", contexto)
 
 @login_required
 def vista_metopc(request):
@@ -84,3 +103,21 @@ def vista_saocom1aett(request):
 @login_required
 def vista_saocom1bett(request):
     return render(request, "checklists/SAOCOM1BETT.html")
+
+def vista_crear_pasada(request):
+    if request.method == "POST":
+        formulario = PasadaFormulario(request.POST)
+
+        #validamos que el formulario no tenga problemas
+        if formulario.is_valid():
+        #recuperamos los datos del atributo cleaned_data
+            data = formulario.cleaned_data
+
+            checklist = Checklist(satelite = data["satelite"], orbita = data["orbita"], incidente = data["incidente"], comentario = data["comentario"], exitoso = data["exitoso"])
+
+            checklist.save()
+ 
+    formulario = PasadaFormulario()
+
+    contexto = {"formulario": formulario}
+    return render(request, "crear_pasada.html", contexto)

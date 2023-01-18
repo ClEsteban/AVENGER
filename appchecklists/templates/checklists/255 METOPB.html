@@ -8,14 +8,15 @@
 </head>
 <body>
     <h1>Atencion de Pasada METOP-B con Antena YANTAI (Config 255)</h1>
-    <form>
-        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
-        Hora: <input tyoe="time" name="hora"/>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <!--Fecha: <input type="date" name="fecha"/> Fecha, Hora y operador deberian ser automaticas-->
+        <!-- Hora: <input tyoe="time" name="hora"/> -->
         <hr>
         Satelite: <input value="METOP-B" type="text" name="satelite"/>
         Orbita: <input type="number" name="orbita"/>
         <hr>
-        Operador: <input type="text" name="operador"/>
+        Operador: {{request.user.username}}
         <hr>       
         <table style="width: 60%;">
             <tr>
@@ -28,14 +29,14 @@
                 <td>01</td>
                 <td>VER</td>
                 <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
-                <td><input type="checkbox" name="1"/></td>
+                <td><input type="checkbox" name="_01ckb"/></td>
             </tr>
             <tr>
                 <td>02</td>
                 <td>VER</td>
                 <td>En la antena YANTAI verificar que la ventana "Orbit Control Engine"
                     diga: "METOP-B" is remote selected</td>
-                <td><input type="checkbox" name="2"/></td>
+                <td><input type="checkbox" name="_02ckb"/></td>
             </tr>
             <tr>
                 <td>03</td>
@@ -43,7 +44,7 @@
                 <td>En la antena YANTAI verificar que la ventana "Antenna Control System"
                     que "AUTO TRK" este seleccionado
                 </td>
-                <td><input type="checkbox" name="3"/></td>
+                <td><input type="checkbox" name="_03ckb"/></td>
             </tr>                
             <tr>
                 <td>04</td>
@@ -52,7 +53,7 @@
                     antesde del AOS que este cargada la configuracion <b>ECL_IN_METOPB_V1</b>
                     y el nombre del archivo a ingestar con la fecha y nombre correcto 
                 </td>
-                <td><input type="checkbox" name="4"/></td>
+                <td><input type="checkbox" name="_04ckb"/></td>
             </tr>
             <tr>
                 <td>05</td>
@@ -60,7 +61,7 @@
                 <td>Verificar desde el panel frontal del demodulador Quorum (ubicado en Rack 9)
                     que el mismo se encuentre configurado para METOP-B(METP)
                 </td>
-                <td><input type="checkbox" name="5"/></td>
+                <td><input type="checkbox" name="_05ckb"/></td>
             </tr>
             <tr>
                 <td></td>
@@ -75,7 +76,7 @@
                     "Antenna Control System" que los valores visibles de azimut y elevacion
                     varien de manera secuencial
                 </td>
-                <td><input type="checkbox" name="6"/></td>
+                <td><input type="checkbox" name="_06ckb"/></td>
             </tr>
             <tr>
                 <td>07</td>
@@ -84,7 +85,7 @@
                     Verificar desde el panel frontal del demodulador Quorum (ubicado en el rack 9)
                     que el mismo se encuentre enganchado (FR)
                 </td>
-                <td><input type="checkbox" name="7"/></td>
+                <td><input type="checkbox" name="_07ckb"/></td>
             </tr>
             <tr>
                 <td>08</td>
@@ -92,7 +93,7 @@
                 <td>
                     Verificar en R-DEMKTSA02 que el modulo Frame Sync 2l este en verde.
                 </td>
-                <td><input type="checkbox" name="8"/></td>
+                <td><input type="checkbox" name="_08ckb"/></td>
             </tr>
             <tr>
                 <td>09</td>
@@ -101,7 +102,7 @@
                     Verificar que en el status del modulo Raw Achiver 2l
                     se incremente el contador
                 </td>
-                <td><input type="checkbox" name="9"/></td>
+                <td><input type="checkbox" name="_09ckb"/></td>
             </tr>
             <tr>
                 <td></td>
@@ -113,13 +114,13 @@
                 <td>10</td>
                 <td>VER</td>
                 <td>Verificar que el equipo R-DEMKSTA02 carga la configuracion <b>default</b> </td>
-                <td><input type="checkbox" name="10"/></td>
+                <td><input type="checkbox" name="_10ckb"/></td>
             </tr>
                         <tr>
                 <td>11</td>
                 <td>VER</td>
                 <td>Verificar que la antena YANTAI se fue a stow</td>
-                <td><input type="checkbox" name="11"/></td>
+                <td><input type="checkbox" name="_11ckb"/></td>
             </tr>
 
             <tr>

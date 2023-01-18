@@ -26,4 +26,5 @@ urlpatterns = [
     path('SAOCOM1BETC/', vista_saocom1betc, name="saocom1betc"),
     path('SAOCOM1AETT/', vista_saocom1aett, name="saocom1aett"),
     path('SAOCOM1BETT/', vista_saocom1bett, name="saocom1bett"),
+    path('checkcomfirm/', vista_crear_pasada, name="crear-pasada"),
 ]
