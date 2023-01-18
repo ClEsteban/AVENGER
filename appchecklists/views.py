@@ -4,6 +4,7 @@ from datetime import datetime
 from django.template import Template, Context, loader
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from appchecklists.models import Checklist
 
 @login_required
 def vista_lista(request):
@@ -84,3 +85,20 @@ def vista_saocom1aett(request):
 @login_required
 def vista_saocom1bett(request):
     return render(request, "checklists/SAOCOM1BETT.html")
+
+@login_required
+def vista_guardar_check(request):
+    if request.method == 'POST':
+        check = Checklist(
+            request.POST["satelite"],
+            request.POST["orbita"],
+            request.POST["exitoso"],
+            request.POST["incidente"],
+            request.POST["comentario"],
+            request.POST["_01chk"],request.POST["_02chk"],request.POST["_03chk"],
+            request.POST["_04chk"],request.POST["_05chk"],request.POST["_06chk"],
+            request.POST["_07chk"],request.POST["_08chk"],request.POST["_09chk"],
+            request.POST["_10chk"],request.POST["_11chk"],)
+        check.save()
+        return render(request, "check_guardar.html")
+    return render(request, "list.html")

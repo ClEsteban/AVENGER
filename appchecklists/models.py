@@ -1,8 +1,39 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-#class Checklist(models.Model):
-#    id = models.AutoField(primary_key=True)
-#    fecha = models.DateTimeField(auto_now_add=True)
-    
+class Checklist(models.Model):
+    id = models.AutoField(primary_key=True)
+    fecha = models.DateTimeField(auto_now_add=True)
+    satelite = models.CharField(max_length=50)
+    orbita = models.IntegerField()
+    operador = models.ForeignKey(User, on_delete=models.CASCADE)
+    incidente = models.IntegerField()
+    comentario = models.TextField(max_length=250)
+    exitoso = models.BooleanField()
+    _01chk = models.BooleanField()
+    _02chk = models.BooleanField()
+    _03chk = models.BooleanField()
+    _04chk = models.BooleanField()
+    _05chk = models.BooleanField()
+    _06chk = models.BooleanField()
+    _07chk = models.BooleanField()
+    _08chk = models.BooleanField()
+    _09chk = models.BooleanField()
+    _10chk = models.BooleanField()
+    _11chk = models.BooleanField()
+    _12chk = models.BooleanField()
+    _13chk = models.BooleanField()
+    _14chk = models.BooleanField()
+    _15chk = models.BooleanField()
+    _16chk = models.BooleanField()
+    _17chk = models.BooleanField()
+    _18chk = models.BooleanField()
+    _19chk = models.BooleanField()
+    _20chk = models.BooleanField()
+    _21chk = models.BooleanField()
+    _22chk = models.BooleanField()
+    _23chk = models.BooleanField()
+    _24chk = models.BooleanField()
+    _25chk = models.BooleanField()
