@@ -37,7 +37,9 @@ def vista_metopb(request):
 
 @login_required
 def vista_metopc(request):
-    return render(request, "checklists/255 METOPC.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/255 METOPC.html", context)
 
 @login_required
 def vista_aqua(request):
@@ -45,7 +47,9 @@ def vista_aqua(request):
 
 @login_required
 def vista_terra(request):
-    return render(request, "checklists/341 TERRA.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/341 TERRA.html", context)
 
 @login_required
 def vista_landsat8(request):
@@ -114,7 +118,21 @@ def vista_guardar_check(request):
             a08ckb=informacion["a08ckb"],
             a09ckb=informacion["a09ckb"],
             a10ckb=informacion["a10ckb"],
-            a11ckb=informacion["a11ckb"],           
+            a11ckb=informacion["a11ckb"],
+            a12ckb=informacion["a12ckb"],
+            a13ckb=informacion["a13ckb"],
+            a14ckb=informacion["a14ckb"],
+            a15ckb=informacion["a15ckb"],
+            a16ckb=informacion["a16ckb"],
+            a17ckb=informacion["a17ckb"],
+            a18ckb=informacion["a18ckb"],
+            a19ckb=informacion["a19ckb"],
+            a20ckb=informacion["a20ckb"],
+            a21ckb=informacion["a21ckb"],
+            a22ckb=informacion["a22ckb"],
+            a23ckb=informacion["a23ckb"],
+            a24ckb=informacion["a24ckb"],
+            a25ckb=informacion["a25ckb"],           
             )
             check.save()
             return render(request, "check_guardar.html")

@@ -8,14 +8,12 @@
 </head>
 <body>
     <h1>Atencion de Pasada TERRA con Antena de 3,6m SA (Config 341)</h1>
-    <form>
-        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
-        Hora: <input tyoe="time" name="hora"/>
+    <form action="{% url 'checkguardar' %}" method="POST"> {% csrf_token %}
         <hr>
-        Satelite: <input value="TERRA" type="text" name="satelite"/>
-        Orbita: <input type="number" name="orbita"/>
+        Satelite: {{form.satelite}}
+        Orbita: {{form.orbita}}
         <hr>
-        Operador: <input type="text" name="Operador"/>
+        Operador: {{request.user.username}}
         <hr>       
         <table style="width: 60%;">
             <tr>
@@ -29,7 +27,7 @@
                 <td>VER</td>
                 <td>15 minutos antes del AOS verificar que la pasada este cargada de forma automatica 
                     en el GSC de la antena de 3,6SA, caso contrario cargarla</td>
-                <td><input type="checkbox" name="1"/></td>
+                <td>{{form.a01ckb}}</td>
             </tr>                
             <tr>
                 <td>02</td>
@@ -37,7 +35,7 @@
                 <td>Verificar que el horario de AOS del GSC coincida con los de la planilla
                     de planificacion
                 </td>
-                <td><input type="checkbox" name="2"/></td>
+                <td>{{form.a02ckb}}</td>
             </tr>
             <tr>
                 <td>03</td>
@@ -46,20 +44,20 @@
                 Frecuencia: <b>2487.5 MHz</b><br>
                 Atenuacion: <b>20dB</b>
                 </td>
-                <td><input type="checkbox" name="3"/></td>
+                <td>{{form.a03ckb}}</td>
             </tr>
             <tr>
                 <td>04</td>
                 <td>VER</td>
                 <td>Verificar unos minutos antes del AOS que la pasada este cargada en <b>INU05 e INU07</b>
                 </td>
-                <td><input type="checkbox" name="4"/></td>
+                <td>{{form.a04ckb}}</td>
             </tr>
             <tr>
                 <td>05</td>
                 <td>VER</td>
                 <td>Verificar que el demodulador (<b>R-DEMINSA02</b>) este configurado para la mision <b>TERRA</b></td>
-                <td><input type="checkbox" name="5"/></td>
+                <td>{{form.a05ckb}}</td>
             </tr>
             <tr>
                 <td>06</td>
@@ -67,7 +65,7 @@
                 <td>Verificar la Matriz <b>R-IFMTX01</b>:<br>
                     <li>IN: 06 - OUT: 03</li>
                 </td>
-                <td><input type="checkbox" name="6"/></td>
+                <td>{{form.a06ckb}}</td>
             </tr>
             <tr>
                 <td>07</td>
@@ -75,7 +73,7 @@
                 <td>Verificar que se ejecuten las configuraciones cargadas en el PEC 
                     para la pasada asociada
                 </td>
-                <td><input type="checkbox" name="7"/></td>
+                <td>{{form.a07ckb}}</td>
             </tr>
             <tr>
                 <td>08</td>
@@ -90,7 +88,7 @@
                     <li>OUT: 21 - IN: 31</li>
                     <li>OUT: 22 - IN: 32</li>
                 </td>
-                <td><input type="checkbox" name="8"/></td>
+                <td>{{form.a08ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -104,19 +102,19 @@
                 <td>Verificar que en AOS se empiece a mover la antena y comience la recepcion de senal, mirar
                     analizador de espectro.
                 </td>
-                <td><input type="checkbox" name="9"/></td>
+                <td>{{form.a09ckb}}</td>
             </tr>
             <tr>
                 <td>10</td>
                 <td>VER</td>
                 <td>Verificar en el demodulador R-DEMINSA02 el estado de lock en verde</td>
-                <td><input type="checkbox" name="10"/></td>
+                <td>{{form.a10ckb}}</td>
             </tr>
             <tr>
                 <td>11</td>
                 <td>VER</td>
                 <td>Verificar que INU5 e INU7 comiencen a ingestar correctamente</td>
-                <td><input type="checkbox" name="11"/></td>
+                <td>{{form.a11ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -128,13 +126,13 @@
                 <td>12</td>
                 <td>DO</td>
                 <td>Completar la hoja de ruta de la pasada</td>
-                <td><input type="checkbox" name="12"/></td>
+                <td>{{form.a12ckb}}</td>
             </tr>
             <tr>
                 <td>13</td>
                 <td>VER</td>
                 <td>Verificar que la antena de 3,6SA se va a Stow</td>
-                <td><input type="checkbox" name="13"/></td>
+                <td>{{form.a13ckb}}</td>
             </tr>
 
             <tr>
@@ -146,13 +144,13 @@
         </table>
         <hr>
         <li>
-        EXITOSO<input type="checkbox" name="exitoso"/>
-        INCIDENTE<input type="number" name="incidente"/>
+        EXITOSO{{form.exitoso}}
+        INCIDENTE{{form.incidente}}
         </li>
         <hr>
         <label for="comentario">Comentarios</label>
         <br>
-        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        {{form.comentario}}
         <hr>
         <button type="submit" value="submit">ENVIAR</button>
     </form>    
