@@ -43,7 +43,9 @@ def vista_metopc(request):
 
 @login_required
 def vista_aqua(request):
-    return render(request, "checklists/345 AQUA.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/345 AQUA.html", context)
 
 @login_required
 def vista_terra(request):
