@@ -98,7 +98,7 @@ def vista_guardar_check(request):
         print(formulario)
         if formulario.is_valid:
             informacion = formulario.cleaned_data            
-            check = Checklist(            
+            check = Checklist(operador1=request.user.username,            
             satelite=informacion["satelite"],
             orbita=informacion["orbita"],
             exitoso=informacion["exitoso"],
