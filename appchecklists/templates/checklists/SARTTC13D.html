@@ -8,14 +8,12 @@
 </head>
 <body>
     <h1>Pasadas de SAR (TT&C) con antena de 13m DATRON</h1>
-    <form>
-        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
-        Hora: <input tyoe="time" name="hora"/>
+    <form action="{% url 'checkguardar' %}" method="POST"> {% csrf_token %}
         <hr>
-        Satelite: <input value="SAR" type="text" name="satelite"/>
-        Orbita: <input type="number" name="orbita"/>
+        Satelite: {{form.satelite}}
+        Orbita: {{form.orbita}}
         <hr>
-        Operador: <input type="text" name="Operador"/>
+        Operador: {{request.user.username}}
         <hr>       
         <table style="width: 60%;">
             <tr>
@@ -28,13 +26,13 @@
                 <td>01</td>
                 <td>VER</td>
                 <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
-                <td><input type="checkbox" name="1"/></td>
+                <td>{{form.a01ckb}}</td>
             </tr>
             <tr>
                 <td>02</td>
                 <td>VER</td>
                 <td>Verificar que el TILT sea correcto</td>
-                <td><input type="checkbox" name="2"/></td>
+                <td>{{form.a02ckb}}</td>
             </tr>
             <tr>
                 <td>03</td>
@@ -43,7 +41,7 @@
                     Verificar que los controladores LMP SAR esten levantados y
                     con el monitoreo BaseBand y de STC corriendo
                 </td>
-                <td><input type="checkbox" name="3"/></td>
+                <td>{{form.a03ckb}}</td>
             </tr>
             <tr>
                 <td>04</td>
@@ -51,7 +49,7 @@
                 <td>
                     Verificar que el ejecutor de los controladores este activado
                 </td>
-                <td><input type="checkbox" name="4"/></td>
+                <td>{{form.a04ckb}}</td>
             </tr>                
             <tr>
                 <td>05</td>
@@ -59,7 +57,7 @@
                 <td>
                     Verificar que se ejecuten correctamente las acividades del PEC
                 </td>
-                <td><input type="checkbox" name="5"/></td>
+                <td>{{form.a05ckb}}</td>
             </tr>
             <tr>
                 <td>06</td>
@@ -68,7 +66,7 @@
                     En el SCC de A13,5m verificar que la configuracion sea
                     98 Cosmo Skymed
                 </td>
-                <td><input type="checkbox" name="6"/></td>
+                <td>{{form.a06ckb}}</td>
             </tr>
             <tr>
                 <td>07</td>
@@ -79,7 +77,7 @@
                     <li> Cadena de UpConverter: <b>2053.458 MHz</b></li>
                     <li> Cadena de DownConverter: <b>2230 MHz</b></li>
                 </td>
-                <td><input type="checkbox" name="7"/></td>
+                <td>{{form.a07ckb}}</td>
             </tr>
             <tr>
                 <td>08</td>
@@ -88,7 +86,7 @@
                     Comprobar que al AOS - 5 minutos, se encuentre cargado el CTX
                     acorde a la pasada.
                 </td>
-                <td><input type="checkbox" name="8"/></td>
+                <td>{{form.a08ckb}}</td>
             </tr>
             <tr>
                 <td>09</td>
@@ -96,7 +94,7 @@
                 <td>
                     Verificar que aproximadamente 3 minutos antes del AOS se levanten los STC
                 </td>
-                <td><input type="checkbox" name="9"/></td>
+                <td>{{form.a09ckb}}</td>
             </tr>
             <tr>
                 <td>10</td>
@@ -107,7 +105,7 @@
                     <li>RHCP: IN: 01 - OUT: 01</li>
                     <li>LHCP: IN: 04 - OUT: 02</li>
                 </td>
-                <td><input type="checkbox" name="10"/></td>
+                <td>{{form.a10ckb}}</td>
             </tr>
             <tr>
                 <td>11</td>
@@ -117,7 +115,7 @@
                     Uplink:<br>
                     <li>IDHS1/IDHS2: IN: 04 - OUT: 03</li>                    
                 </td>
-                <td><input type="checkbox" name="11"/></td>
+                <td>{{form.a11ckb}}</td>
             </tr>
             <tr>
                 <td>12</td>
@@ -130,7 +128,7 @@
                     Uplink:<br>
                     <li>IDHS1: IN: 07 - OUT: 15 o IDHS2: IN: 09 - OUT: 15</li>                     
                 </td>
-                <td><input type="checkbox" name="12"/></td>
+                <td>{{form.a12ckb}}</td>
             </tr>
             <tr>
                 <td>13</td>
@@ -139,7 +137,7 @@
                     Verificar el preposicionamiento de la antena, segun azimut
                     y elevacion inicial
                 </td>
-                <td><input type="checkbox" name="13"/></td>
+                <td>{{form.a13ckb}}</td>
             </tr>
             <tr>
                 <td>14</td>
@@ -147,7 +145,7 @@
                 <td>
                     Llamar al numero 522 sobre el telefono IP del Islote de Operaciones
                 </td>
-                <td><input type="checkbox" name="14"/></td>
+                <td>{{form.a14ckb}}</td>
             </tr>
             <tr>
                 <td>15</td>
@@ -156,7 +154,7 @@
                     Informar al GSN la cadena configurada <br>
                     Voice Loop: "<b>Fucino, the IDHS X(X=1 o X=2) is online</b>" [Ref.01]
                 </td>
-                <td><input type="checkbox" name="15"/></td>
+                <td>{{form.a15ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -171,7 +169,7 @@
                     Verificar y notificar el AOS (Adquisition Of Signal).<br>
                     "<b>Fucino, we are in AOS</b>"
                 </td>
-                <td><input type="checkbox" name="16"/></td>
+                <td>{{form.a16ckb}}</td>
             </tr>
             <tr>
                 <td>17</td>
@@ -179,7 +177,7 @@
                 <td>
                     Verificar el encendido del carrier
                 </td>
-                <td><input type="checkbox" name="17"/></td>
+                <td>{{form.a17ckb}}</td>
             </tr>
             <tr>
                 <td>18</td>
@@ -187,7 +185,7 @@
                 <td>
                     Verificar el inicio del proceso de Sweeping
                 </td>
-                <td><input type="checkbox" name="18"/></td>
+                <td>{{form.a18ckb}}</td>
             </tr>
             <tr>
                 <td>19</td>
@@ -195,7 +193,7 @@
                 <td>
                     Verificar que la modulacion este encendida
                 </td>
-                <td><input type="checkbox" name="19"/></td>
+                <td>{{form.a19ckb}}</td>
             </tr>
             <tr>
                 <td>20</td>
@@ -203,7 +201,7 @@
                 <td>
                     Verificar el final del proceso de Sweeping (Return to Zero)
                 </td>
-                <td><input type="checkbox" name="20"/></td>
+                <td>{{form.a20ckb}}</td>
             </tr>
             <tr>
                 <td>21</td>
@@ -212,7 +210,7 @@
                     Informar a GSN el estado de CLCW locked<br>
                     Voice Loop "<b>Fucino, the CLCW is Locked</b>" [Ref.05]
                 </td>
-                <td><input type="checkbox" name="21"/></td>
+                <td>{{form.a21ckb}}</td>
             </tr>
             <tr>
                 <td>22</td>
@@ -220,7 +218,7 @@
                 <td>
                     Cerca de los 5 grados descendentes verificar el apagado del carrier
                 </td>
-                <td><input type="checkbox" name="22"/></td>
+                <td>{{form.a22ckb}}</td>
             </tr>
             <tr>
                 <td>23</td>
@@ -229,7 +227,7 @@
                     Verificar y Notificar el LOS (Loss Of Signal)<br>
                     Voice Loop "<b>Fucino, we are in LOS</b>"
                 </td>
-                <td><input type="checkbox" name="23"/></td>
+                <td>{{form.a23ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -243,7 +241,7 @@
                 <td>
                     Verificar la generacion de la telemetria offline
                 </td>
-                <td><input type="checkbox" name="24"/></td>
+                <td>{{form.a24ckb}}</td>
             </tr>
             <tr>
                 <td>25</td>
@@ -251,7 +249,7 @@
                 <td>
                     Verificar la transferencia de la telemetria offline
                 </td>
-                <td><input type="checkbox" name="25"/></td>
+                <td>{{form.a25ckb}}</td>
             </tr>
             <tr>
                 <td>26</td>
@@ -261,7 +259,7 @@
                     telemetria offline<br>
                     Voice Loop "<b>Fucino, the data transfer is completed</b>" [Ref.09]
                 </td>
-                <td><input type="checkbox" name="26"/></td>
+                <td>{{form.a26ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -272,13 +270,13 @@
         </table>
         <hr>
         <li>
-        EXITOSO<input type="checkbox" name="exitoso"/>
-        INCIDENTE<input type="number" name="incidente"/>
+        EXITOSO{{form.exitoso}}
+        INCIDENTE{{form.incidente}}
         </li>
         <hr>
         <label for="comentario">Comentarios</label>
         <br>
-        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        {{form.comentario}}
         <hr>
         <button type="submit" value="submit">ENVIAR</button>
     </form>    

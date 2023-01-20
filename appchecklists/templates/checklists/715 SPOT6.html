@@ -8,14 +8,12 @@
 </head>
 <body>
     <h1>Atencion de Pasada SPOT 6 con Antena de 13m (Config 715)</h1>
-    <form>
-        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
-        Hora: <input tyoe="time" name="hora"/>
+    <form action="{% url 'checkguardar' %}" method="POST"> {% csrf_token %}
         <hr>
-        Satelite: <input value="SPOT 6" type="text" name="satelite"/>
-        Orbita: <input type="number" name="orbita"/>
+        Satelite: {{form.satelite}}
+        Orbita: {{form.orbita}}
         <hr>
-        Operador: <input type="text" name="Operador"/>
+        Operador: {{request.user.username}}
         <hr>       
         <table style="width: 60%;">
             <tr>
@@ -28,13 +26,13 @@
                 <td>01</td>
                 <td>VER</td>
                 <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
-                <td><input type="checkbox" name="1"/></td>
+                <td>{{form.a01ckb}}</td>
             </tr>
             <tr>
                 <td>02</td>
                 <td>VER</td>
                 <td>Verificar que la pasada se encuentre planificada en la antena de 13m</td>
-                <td><input type="checkbox" name="2"/></td>
+                <td>{{form.a02ckb}}</td>
             </tr>
             <tr>
                 <td>03</td>
@@ -43,13 +41,13 @@
                 en rack 8 qu figure la pasada segun planificacion y que los horarios de inicio sean 
                 similares.
                 </td>
-                <td><input type="checkbox" name="3"/></td>
+                <td>{{form.a03ckb}}</td>
             </tr>                
             <tr>
                 <td>04</td>
                 <td>VER</td>
                 <td>Verificar que se ejcuten correctamente las acividades del PEC</td>
-                <td><input type="checkbox" name="4"/></td>
+                <td>{{form.a04ckb}}</td>
             </tr>
             <tr>
                 <td>05</td>
@@ -59,7 +57,7 @@
                 Mixer 1: <b>8150</b><br>
                 Mixer 2: <b>8150</b><br>
                 </td>
-                <td><input type="checkbox" name="5"/></td>
+                <td>{{form.a05ckb}}</td>
             </tr>
             <tr>
                 <td>06</td>
@@ -67,7 +65,7 @@
                 <td>Verificar que los demoduladores <b>R-DEMINSA03</b> y <b>R-DEMINSA04</b> se
                     configuren para la mision SPOT6                
                 </td>
-                <td><input type="checkbox" name="6"/></td>
+                <td>{{form.a06ckb}}</td>
             </tr>
             <tr>
                 <td>07</td>
@@ -75,7 +73,7 @@
                 <td>Verificar el preposicionamiento de la antena de 13m en base a los parametros de la
                     planilla de planificacion
                 </td>
-                <td><input type="checkbox" name="7"/></td>
+                <td>{{form.a07ckb}}</td>
             </tr>
             <tr>
                 <td>08</td>
@@ -83,7 +81,7 @@
                 <td>Verificar que la configuracion de la matriz <b>R-IFMTX02</b>
                     concuerde con lo planificado
                 </td>
-                <td><input type="checkbox" name="8"/></td>
+                <td>{{form.a08ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -97,21 +95,21 @@
                 <td>Verificar que en AOS se empiece a mover la antena y comience la recepcion de senal, mirar
                     analizador de espectro.
                 </td>
-                <td><input type="checkbox" name="9"/></td>
+                <td>{{form.a09ckb}}</td>
             </tr>
             <tr>
                 <td>10</td>
                 <td>VER</td>
                 <td>Verificar que en las variables de los demoduladores <b>R-DEMINSA03</b> y
                     <b>R-DEMINSA04</b> se pongan en verde</td>
-                <td><input type="checkbox" name="10"/></td>
+                <td>{{form.a10ckb}}</td>
             </tr>
             <tr>
                 <td>11</td>
                 <td>VER</td>
                 <td>Verificar la imagen en quicklook del sitema de ingestion SPOT
                 </td>
-                <td><input type="checkbox" name="11"/></td>
+                <td>{{form.a11ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -123,13 +121,13 @@
                 <td>12</td>
                 <td>VER</td>
                 <td>Verificar que la antena se vaya a stow</td>
-                <td><input type="checkbox" name="12"/></td>
+                <td>{{form.a12ckb}}</td>
             </tr>
                         <tr>
                 <td>13</td>
                 <td>DO</td>
                 <td>Completar la hoja de ruta de la pasada</td>
-                <td><input type="checkbox" name="13"/></td>
+                <td>{{form.a13ckb}}</td>
             </tr>
 
             <tr>
@@ -141,13 +139,13 @@
         </table>
         <hr>
         <li>
-        EXITOSO<input type="checkbox" name="exitoso"/>
-        INCIDENTE<input type="number" name="incidente"/>
+        EXITOSO{{form.exitoso}}
+        INCIDENTE{{form.incidente}}
         </li>
         <hr>
         <label for="comentario">Comentarios</label>
         <br>
-        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        {{form.comentario}}
         <hr>
         <button type="submit" value="submit">ENVIAR</button>
     </form>    

@@ -8,14 +8,12 @@
 </head>
 <body>
     <h1>Pasada de SAOCOM 1A con antena de 5.4m (Config 410)</h1>
-    <form>
-        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
-        Hora: <input tyoe="time" name="hora"/>
+    <form action="{% url 'checkguardar' %}" method="POST"> {% csrf_token %}
         <hr>
-        Satelite: <input value="SAOCOM 1A" type="text" name="satelite"/>
-        Orbita: <input type="number" name="orbita"/>
+        Satelite: {{form.satelite}}
+        Orbita: {{form.orbita}}
         <hr>
-        Operador: <input type="text" name="Operador"/>
+        Operador: {{request.user.username}}
         <hr>       
         <table style="width: 60%;">
             <tr>
@@ -28,7 +26,7 @@
                 <td>01</td>
                 <td>VER</td>
                 <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
-                <td><input type="checkbox" name="1"/></td>
+                <td>{{form.a01ckb}}</td>
             </tr>
             <tr>
                 <td>02</td>
@@ -37,7 +35,7 @@
                     Verificar que la pasada se encuentre cargada en la antena de 5.4m
                     (desde ViaControl Portal)
                 </td>
-                <td><input type="checkbox" name="2"/></td>
+                <td>{{form.a02ckb}}</td>
             </tr>
             <tr>
                 <td>03</td>
@@ -46,7 +44,7 @@
                     Verificar que el HPA de la antena de 5.4m se encuentra
                     encendido y sin fallas
                 </td>
-                <td><input type="checkbox" name="3"/></td>
+                <td>{{form.a03ckb}}</td>
             </tr>
             <tr>
                 <td>04</td>
@@ -54,7 +52,7 @@
                 <td>
                     ETC-MOC: Verificar los horarios de AOS y LOS
                 </td>
-                <td><input type="checkbox" name="4"/></td>
+                <td>{{form.a04ckb}}</td>
             </tr>           
             <tr>
                 <td>05</td>
@@ -63,7 +61,7 @@
                     Notificar al MOC de SAOCOM que la antena esta
                     configurada y esperando la pasada
                 </td>
-                <td><input type="checkbox" name="5"/></td>
+                <td>{{form.a05ckb}}</td>
             </tr>
             <tr>
                 <td>06</td>
@@ -71,7 +69,7 @@
                 <td>
                     Verificar que la polaridad de transmision se RHCP
                 </td>
-                <td><input type="checkbox" name="6"/></td>
+                <td>{{form.a06ckb}}</td>
             </tr>
             <tr>
                 <td>07</td>
@@ -81,7 +79,7 @@
                     UpLink S Band:<br>
                     <li>IN: 05 - OUT: 02</li>
                 </td>
-                <td><input type="checkbox" name="7"/></td>
+                <td>{{form.a07ckb}}</td>
             </tr>
             <tr>
                 <td>08</td>
@@ -93,7 +91,7 @@
                     Dw LHCP S-Band:<br>
                     <li>IN: 07 - OUT: 08</li>
                 </td>
-                <td><input type="checkbox" name="8"/></td>
+                <td>{{form.a08ckb}}</td>
             </tr>
             <tr>
                 <td>09</td>
@@ -103,7 +101,7 @@
                     antena de 5.4m:<br>
                     <li>Frecuncia: <b>2076.939 MHz</b></li>
                 </td>
-                <td><input type="checkbox" name="9"/></td>
+                <td>{{form.a09ckb}}</td>
             </tr>
             <tr>
                 <td>10</td>
@@ -113,7 +111,7 @@
                     antena de 5.4m:<br>
                     <li>Frecuncia: <b>2255.5 MHz</b></li>
                 </td>
-                <td><input type="checkbox" name="10"/></td>
+                <td>{{form.a10ckb}}</td>
             </tr>
             <tr>
                 <td>11</td>
@@ -123,7 +121,7 @@
                     <li>X-Band LHC D/C: <b>8165.5 MHz</b></li>
                     <li>X-Band RHC D/C: <b>8165.5 MHz</b></li>
                 </td>
-                <td><input type="checkbox" name="11"/></td>
+                <td>{{form.a11ckb}}</td>
             </tr>
             <tr>
                 <td>12</td>
@@ -135,7 +133,7 @@
                     <b>A5.4 HDR SAOCOM LINK2:</b><br>
                     <li>IN: 01 - OUT: 07</li>
                 </td>
-                <td><input type="checkbox" name="12"/></td>
+                <td>{{form.a12ckb}}</td>
             </tr>             
             <tr>
                 <td></td>
@@ -149,7 +147,7 @@
                 <td>
                     Verificar la recepcion de senal y notificar al MOC
                 </td>
-                <td><input type="checkbox" name="13"/></td>
+                <td>{{form.a13ckb}}</td>
             </tr>
             <tr>
                 <td>14</td>
@@ -158,7 +156,7 @@
                     Observar la recepcion de Banda X en el analizador de espectros
                     , e informar al MOC
                 </td>
-                <td><input type="checkbox" name="14"/></td>
+                <td>{{form.a14ckb}}</td>
             </tr>
             <tr>
                 <td>15</td>
@@ -166,7 +164,7 @@
                 <td>
                     A lo 5 grados de elevacion en ascenso notificar al MOC
                 </td>
-                <td><input type="checkbox" name="15"/></td>
+                <td>{{form.a15ckb}}</td>
             </tr>
             <tr>
                 <td>16</td>
@@ -175,7 +173,7 @@
                     Cuando la antena se acerque a los 5 grados de elevacion
                     descendente notificar
                 </td>
-                <td><input type="checkbox" name="16"/></td>
+                <td>{{form.a16ckb}}</td>
             </tr>
             <tr>
                 <td>17</td>
@@ -183,7 +181,7 @@
                 <td>
                     Cuando la antena este cerca de LOS de la pasada notificar
                 </td>
-                <td><input type="checkbox" name="17"/></td>
+                <td>{{form.a17ckb}}</td>
             </tr>           
             <tr>
                 <td></td>
@@ -197,7 +195,7 @@
                 <td>
                     Verificar la generacion de reportes AMD y METEO
                 </td>
-                <td><input type="checkbox" name="18"/></td>
+                <td>{{form.a18ckb}}</td>
             </tr>
             <tr>
                 <td>19</td>
@@ -205,7 +203,7 @@
                 <td>
                     Verificar que la antena de 5.4m se va a stow
                 </td>
-                <td><input type="checkbox" name="19"/></td>
+                <td>{{form.a19ckb}}</td>
             </tr>            
             <tr>
                 <td></td>
@@ -216,13 +214,13 @@
         </table>
         <hr>
         <li>
-        EXITOSO<input type="checkbox" name="exitoso"/>
-        INCIDENTE<input type="number" name="incidente"/>
+        EXITOSO{{form.exitoso}}
+        INCIDENTE{{form.incidente}}
         </li>
         <hr>
         <label for="comentario">Comentarios</label>
         <br>
-        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        {{form.comentario}}
         <hr>
         <button type="submit" value="submit">ENVIAR</button>
     </form>    

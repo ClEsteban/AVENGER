@@ -55,47 +55,69 @@ def vista_terra(request):
 
 @login_required
 def vista_landsat8(request):
-    return render(request, "checklists/792 LANDSAT8.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/792 LANDSAT8.html", context)
 
 @login_required
 def vista_spot6(request):
-    return render(request, "checklists/715 SPOT6.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/715 SPOT6.html", context)
 
 @login_required
 def vista_spot7(request):
-    return render(request, "checklists/425 SPOT7.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/425 SPOT7.html", context)
 
 @login_required
 def vista_sarx(request):
-    return render(request, "checklists/SARX13D.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/SARX13D.html", context)
 
 @login_required
 def vista_sars(request):
-    return render(request, "checklists/SARTTC13D.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/SARTTC13D.html", context)
 
 @login_required
 def vista_ssarx(request):
-    return render(request, "checklists/SSARX13D.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/SSARX13D.html", context)
 
 @login_required
 def vista_ssars(request):
-    return render(request, "checklists/SSARTTC13D.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/SSARTTC13D.html", context)
 
 @login_required
 def vista_saocom1aetc(request):
-    return render(request, "checklists/410 SAOCOM1A.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/410 SAOCOM1A.html", context)
 
 @login_required
 def vista_saocom1betc(request):
-    return render(request, "checklists/411 SAOCOM1B.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/411 SAOCOM1B.html", context)
 
 @login_required
 def vista_saocom1aett(request):
-    return render(request, "checklists/SAOCOM1AETT.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/SAOCOM1AETT.html", context)
 
 @login_required
 def vista_saocom1bett(request):
-    return render(request, "checklists/SAOCOM1BETT.html")
+    context ={}
+    context['form']= PasadaFormulario()
+    return render(request, "checklists/SAOCOM1BETT.html", context)
 
 @login_required
 def vista_guardar_check(request):
@@ -134,7 +156,8 @@ def vista_guardar_check(request):
             a22ckb=informacion["a22ckb"],
             a23ckb=informacion["a23ckb"],
             a24ckb=informacion["a24ckb"],
-            a25ckb=informacion["a25ckb"],           
+            a25ckb=informacion["a25ckb"],
+            a26ckb=informacion["a26ckb"],           
             )
             check.save()
             return render(request, "check_guardar.html")

@@ -8,14 +8,12 @@
 </head>
 <body>
     <h1>Pasadas de SSAR (X Band) con antena de 13m DATRON</h1>
-    <form>
-        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
-        Hora: <input tyoe="time" name="hora"/>
+    <form action="{% url 'checkguardar' %}" method="POST"> {% csrf_token %}
         <hr>
-        Satelite: <input value="SSAR" type="text" name="satelite"/>
-        Orbita: <input type="number" name="orbita"/>
+        Satelite: {{form.satelite}}
+        Orbita: {{form.orbita}}
         <hr>
-        Operador: <input type="text" name="Operador"/>
+        Operador: {{request.user.username}}
         <hr>       
         <table style="width: 60%;">
             <tr>
@@ -28,13 +26,13 @@
                 <td>01</td>
                 <td>VER</td>
                 <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
-                <td><input type="checkbox" name="1"/></td>
+                <td>{{form.a01ckb}}</td>
             </tr>
             <tr>
                 <td>02</td>
                 <td>VER</td>
                 <td>Verificar que el TILT sea correcto</td>
-                <td><input type="checkbox" name="2"/></td>
+                <td>{{form.a02ckb}}</td>
             </tr>
             <tr>
                 <td>03</td>
@@ -42,7 +40,7 @@
                 <td>
                     Verificar que se ejecuten correctamente las acividades del PEC
                 </td>
-                <td><input type="checkbox" name="3"/></td>
+                <td>{{form.a03ckb}}</td>
             </tr>
             <tr>
                 <td>04</td>
@@ -51,7 +49,7 @@
                     En el SCC de A13,5m ViaSat cargar la configuracion
                     <b>98 - Cosmo Skymed (DATRON)</b>
                 </td>
-                <td><input type="checkbox" name="4"/></td>
+                <td>{{form.a04ckb}}</td>
             </tr>           
             <tr>
                 <td>05</td>
@@ -61,7 +59,7 @@
                     <li> R-XDWCIF01: <b>8095 MHz</b></li>
                     <li> R-XDWCIF02: <b>8260 MHz</b></li>
                 </td>
-                <td><input type="checkbox" name="5"/></td>
+                <td>{{form.a05ckb}}</td>
             </tr>
             <tr>
                 <td>06</td>
@@ -71,7 +69,7 @@
                     <li>IN: 06 - OUT: 04</li>
                     <li>IN: 02 - OUT: 08</li>
                 </td>
-                <td><input type="checkbox" name="6"/></td>
+                <td>{{form.a06ckb}}</td>
             </tr>
             <tr>
                 <td>07</td>
@@ -81,7 +79,7 @@
                     <ol type="a"><li>IN: 14 - OUT: 03<br>IN: 14 - OUT: 05</li>
                     <li>IN: 15 - OUT: 04<br>IN: 15 - OUT: 06</li></ol>
                 </td>
-                <td><input type="checkbox" name="7"/></td>
+                <td>{{form.a07ckb}}</td>
             </tr>           
             <tr>
                 <td></td>
@@ -96,7 +94,7 @@
                     Verificar que para el tiempo indicado como AOS 
                     se empiece a mover la antena (Tracking)
                 </td>
-                <td><input type="checkbox" name="8"/></td>
+                <td>{{form.a08ckb}}</td>
             </tr>
             <tr>
                 <td>09</td>
@@ -105,7 +103,7 @@
                     Verificar que el proceso de grabacion este incrementando
                     en el monitoring console
                 </td>
-                <td><input type="checkbox" name="9"/></td>
+                <td>{{form.a09ckb}}</td>
             </tr>
             <tr>
                 <td>10</td>
@@ -115,7 +113,7 @@
                     la Banda X antes de que finalice la cuenta regresiva de
                     la adquisicion
                 </td>
-                <td><input type="checkbox" name="10"/></td>
+                <td>{{form.a10ckb}}</td>
             </tr>
             <tr>
                 <td>11</td>
@@ -123,7 +121,7 @@
                 <td>
                     Verificar el estado de lock de los demoduladores SPENG
                 </td>
-                <td><input type="checkbox" name="11"/></td>
+                <td>{{form.a11ckb}}</td>
             </tr>           
             <tr>
                 <td></td>
@@ -137,7 +135,7 @@
                 <td>
                     Verificar que la antena se va a stow
                 </td>
-                <td><input type="checkbox" name="12"/></td>
+                <td>{{form.a12ckb}}</td>
             </tr>
             <tr>
                 <td>13</td>
@@ -145,7 +143,7 @@
                 <td>
                     Completar la hoja de ruta de la pasada
                 </td>
-                <td><input type="checkbox" name="13"/></td>
+                <td>{{form.a13ckb}}</td>
             </tr>            
             <tr>
                 <td></td>
@@ -156,13 +154,13 @@
         </table>
         <hr>
         <li>
-        EXITOSO<input type="checkbox" name="exitoso"/>
-        INCIDENTE<input type="number" name="incidente"/>
+        EXITOSO{{form.exitoso}}
+        INCIDENTE{{form.incidente}}
         </li>
         <hr>
         <label for="comentario">Comentarios</label>
         <br>
-        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        {{form.comentario}}
         <hr>
         <button type="submit" value="submit">ENVIAR</button>
     </form>    

@@ -31,3 +31,4 @@ class PasadaFormulario(forms.Form):
     a23ckb = forms.BooleanField(required=False)
     a24ckb = forms.BooleanField(required=False)
     a25ckb = forms.BooleanField(required=False)
+    a26ckb = forms.BooleanField(required=False)

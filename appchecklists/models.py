@@ -39,3 +39,4 @@ class Checklist(models.Model):
     a23ckb = models.BooleanField(blank=True, null=True)
     a24ckb = models.BooleanField(blank=True, null=True)
     a25ckb = models.BooleanField(blank=True, null=True)
+    a26ckb = models.BooleanField(blank=True, null=True)

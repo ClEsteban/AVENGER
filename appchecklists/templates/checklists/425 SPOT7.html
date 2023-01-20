@@ -8,14 +8,12 @@
 </head>
 <body>
     <h1>Atencion de Pasada SPOT 7 con Antena de 5.4m (Config 425)</h1>
-    <form>
-        Fecha: <input type="date" name="fecha"/> <!--Fecha, Hora y operador deberian ser automaticas-->
-        Hora: <input tyoe="time" name="hora"/>
+    <form action="{% url 'checkguardar' %}" method="POST"> {% csrf_token %}
         <hr>
-        Satelite: <input value="SPOT 7" type="text" name="satelite"/>
-        Orbita: <input type="number" name="orbita"/>
+        Satelite: {{form.satelite}}
+        Orbita: {{form.orbita}}
         <hr>
-        Operador: <input type="text" name="Operador"/>
+        Operador: {{request.user.username}}
         <hr>       
         <table style="width: 60%;">
             <tr>
@@ -28,7 +26,7 @@
                 <td>01</td>
                 <td>VER</td>
                 <td>Verificar que la pasada este cargada en el "List Activity" del PEC console</td>
-                <td><input type="checkbox" name="1"/></td>
+                <td>{{form.a01ckb}}</td>
             </tr>
             <tr>
                 <td>02</td>
@@ -37,7 +35,7 @@
                     Verificar que la pasada se encuentre cargada en la antena de 5.4m
                     (desde ViaControl Portal)
                 </td>
-                <td><input type="checkbox" name="2"/></td>
+                <td>{{form.a02ckb}}</td>
             </tr>
             <tr>
                 <td>03</td>
@@ -46,7 +44,7 @@
                     Verificar que la polaridad de tracking en el feed de
                     Banda X sea <b>TRACK RHC</b>                    
                 </td>
-                <td><input type="checkbox" name="3"/></td>
+                <td>{{form.a03ckb}}</td>
             </tr>                
             <tr>
                 <td>04</td>
@@ -55,7 +53,7 @@
                     Verificar la configuracion de los DownConverters de Banda X:<br>
                 X-Band LHC D/C: <b>8150</b><br>
                 X-Band RHC D/C: <b>8150</b>
-                <td><input type="checkbox" name="4"/></td>
+                <td>{{form.a04ckb}}</td>
             </tr>            
             <tr>
                 <td>05</td>
@@ -65,7 +63,7 @@
                     R-DEMINSA03: <b>IN: 01 - OUT: 03</b><br>
                     R-DEMINSA04: <b>IN: 07 - OUT: 06</b>
                 </td>
-                <td><input type="checkbox" name="5"/></td>
+                <td>{{form.a05ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -79,7 +77,7 @@
                 <td>
                     Verificar que la antena empiece a trackear en AOS
                 </td>
-                <td><input type="checkbox" name="6"/></td>
+                <td>{{form.a06ckb}}</td>
             </tr>
             <tr>
                 <td>07</td>
@@ -87,7 +85,7 @@
                 <td>
                     Observar la recepcion de Banda X en el analizador de Espectros
                 </td>
-                <td><input type="checkbox" name="7"/></td>
+                <td>{{form.a07ckb}}</td>
             </tr>
             <tr>
                 <td>08</td>
@@ -96,7 +94,7 @@
                     Verificar que los demoduladores R-DEMINSA03 y R-DEMINSA04
                     se encuentren ingestando
                 </td>
-                <td><input type="checkbox" name="8"/></td>
+                <td>{{form.a08ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -108,7 +106,7 @@
                 <td>09</td>
                 <td>VER</td>
                 <td>Verificar que la antena de 5.4m se vaya a stow</td>
-                <td><input type="checkbox" name="9"/></td>
+                <td>{{form.a09ckb}}</td>
             </tr>
             <tr>
                 <td></td>
@@ -119,13 +117,13 @@
         </table>
         <hr>
         <li>
-        EXITOSO<input type="checkbox" name="exitoso"/>
-        INCIDENTE<input type="number" name="incidente"/>
+        EXITOSO{{form.exitoso}}
+        INCIDENTE{{form.incidente}}
         </li>
         <hr>
         <label for="comentario">Comentarios</label>
         <br>
-        <textarea cols="50" rows="5" id="comentario" placeholder="ingrese comentario" name="comentario"></textarea>
+        {{form.comentario}}
         <hr>
         <button type="submit" value="submit">ENVIAR</button>
     </form>    
