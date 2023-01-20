@@ -3,12 +3,14 @@
 {% load static %}
 
 {% block titulo %} INICIO {% endblock %}
-{% block subtitulo %} Avenger 1.0 {% endblock %}
+{% block subtitulo %} Avenger Checklister {% endblock %}
 
 {% block Contenido %}
 
 <p> Esta es la pagina de inicio de prueba </p>
 
-<a href="{% url 'avenger-lista' %}">LISTA DE PASADAS</a>
+<a href="{% url 'avenger-lista' %}">LISTA DE PASADAS</a><br>
+<br>
+<a href="{% url 'avenger-lista' %}">ARCHIVO</a>
 
 {% endblock %}

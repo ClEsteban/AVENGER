@@ -24,13 +24,22 @@
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 36px;
         }
+        .volver {
+            background-color: rgb(203, 217, 181);
+
+        }
+        .volver:hover {
+            background-color: rgb(162, 176, 141);
+
+        }
     </style>
 </head>
 <body>
-    <h1>A<span style="color:blue">VENG</span>ER 1.0</h1>
+    <h1>A<span style="color:blue">VENG</span>ER</h1>
     <nav>
         <a target="_blank" href="{% url 'saocom1bett' %}">ETT</a>
         <a target="_blank" href="{% url 'saocom1betc' %}">ETC</a>
+        <a class="volver" href="{% url 'avenger-lista' %}">VOLVER</a>
         
     </nav>
     
