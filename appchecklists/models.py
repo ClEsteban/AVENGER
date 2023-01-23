@@ -40,3 +40,7 @@ class Checklist(models.Model):
     a24ckb = models.BooleanField(blank=True, null=True)
     a25ckb = models.BooleanField(blank=True, null=True)
     a26ckb = models.BooleanField(blank=True, null=True)
+
+    def __str__(self):
+        fila = f"Satelite: {self.satelite} - Orb: {self.orbita} - Operador: {self.operador} - Fecha: {self.fecha}"
+        return fila

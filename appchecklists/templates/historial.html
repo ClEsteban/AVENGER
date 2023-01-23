@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %} Lista de pasadas {% endblock %}
+{% block subtitulo %} Pasadas {% endblock %}
+
+{% block Contenido%}
+
+{% if pasadas %}
+   {% for pasada in pasadas %}
+    <li>
+      {{pasada}} 
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p> No hay pasadas en la base de datos </p>
+{% endif %}
+<br>
+<br>
+<a class="volver" href="{% url 'AVENGER-inicio' %}">VOLVER</a>
+
+{% endblock %}

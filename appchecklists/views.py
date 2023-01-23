@@ -14,6 +14,12 @@ def vista_lista(request):
     return render(request, "list.html")
 
 @login_required
+def vista_historial(request):
+    pasadas = Checklist.objects.all()
+    contexto = {"pasadas": pasadas}
+    return render(request, "historial.html", contexto)
+
+@login_required
 def vista_sarsubmenu(request):
     return render(request, "SARsubmenu.html")
 

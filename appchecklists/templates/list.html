@@ -36,6 +36,14 @@
             background-color:rgb(205, 70, 70);
             transition: background-color 0.5s, font-style 3s;
         }
+        .volver {
+            background-color: rgb(203, 217, 181);
+
+        }
+        .volver:hover {
+            background-color: rgb(162, 176, 141);
+
+        }
     </style>
 </head>
 <body>
@@ -53,6 +61,7 @@
         <a target="_blank" href="{% url 'landsat8' %}">LANDSAT 8</a>
         <a target="_blank" href="{% url 'spot6' %}">SPOT 6</a>
         <a target="_blank" href="{% url 'spot7' %}">SPOT 7</a>
+        <a class="volver" href="{% url 'AVENGER-inicio' %}">VOLVER</a>
         <a class="logout" href="{% url 'AVENGER-logout' %}">LOGOUT</a>
     </nav>
     
