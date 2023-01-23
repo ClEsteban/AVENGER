@@ -9,9 +9,15 @@
 
 {% if pasadas %}
    {% for pasada in pasadas %}
+   <style>
+   li {
+    font-size: 25px 
+   }
+  </style>
     <li>
-      {{pasada}} 
+      {{pasada}}
     </li>
+    <br> <br>
     {% endfor %}
 </ul>
 {% else %}
