@@ -28,7 +28,7 @@ def vista_login(request):
 
             if user is not None:
                 login(request, user)
-                return redirect("avenger-lista")
+                return redirect("AVENGER-inicio")
             else:
                 return render(request, "login.html", {"formulario":formulario, "errors":"credenciales invalidas"})
         else:
