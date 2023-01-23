@@ -1,0 +1,60 @@
+.titulo {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 36px;
+}
+
+.centrado {
+    text-align: center;
+}
+.boton {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    flex: block;
+    background-color: rgb(196, 226, 227);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+}
+.boton:hover{
+    background-color: rgb(147, 147, 197);
+    transition: background-color 0.5s, font-style 3s;
+    
+}
+.logout {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    flex: block;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    background-color:rgb(193, 133, 133)
+}
+.logout:hover {
+    background-color:rgb(205, 70, 70);
+    transition: background-color 0.5s, font-style 3s;
+}
+.volver {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    flex: block;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 24px;
+    background-color: rgb(203, 217, 181);
+
+}
+.volver:hover {
+    background-color: rgb(162, 176, 141);
+
+}
+.subtitulo {
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

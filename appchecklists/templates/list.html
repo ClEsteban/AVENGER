@@ -1,69 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Menu Checklists</title>
-    <style>
-        nav a{
-            text-align: center;
-            display: block;
-            text-decoration: none;
-            padding: 15px;
-            flex: block;
-            background-color: rgb(196, 226, 227);
-            color: white;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 24px;
-        }
-        nav a:hover{
-            background-color: rgb(147, 147, 197);
-            transition: background-color 0.5s, font-style 3s;
-            
-        }
-        h1 {
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 36px;
-        }
-        h2 {
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-        }
-        
-        .logout {
-            background-color:rgb(193, 133, 133)
-        }
-        .logout:hover {
-            background-color:rgb(205, 70, 70);
-            transition: background-color 0.5s, font-style 3s;
-        }
-        .volver {
-            background-color: rgb(203, 217, 181);
+{% extends 'base.html' %}
 
-        }
-        .volver:hover {
-            background-color: rgb(162, 176, 141);
+{% load static %}
 
-        }
-    </style>
-</head>
+<h2 class="subtitulo">{% block subtitulo %}Pasadas{% endblock %}</h2>
+{% block Contenido %}
+    
 <body>
-    <h1>A<span style="color:blue">VENG</span>ER</h1>
-    <h2>Checklister</h2>
+    
     <nav>
-        <a href="{% url 'ssar-submenu' %}">SSAR</a>
-        <a href="{% url 'sar-submenu' %}">SAR</a>
-        <a href="{% url 'saocom1a-menu' %}">SAOCOM 1A</a>
-        <a href="{% url 'saocom1b-menu' %}">SAOCOM 1B</a>
-        <a target="_blank" href="{% url 'metopb' %}">METOP B</a>
-        <a target="_blank" href="{% url 'metopc' %}">METOP C</a>
-        <a target="_blank" href="{% url 'aqua' %}">AQUA</a>
-        <a target="_blank" href="{% url 'terra' %}">TERRA</a>
-        <a target="_blank" href="{% url 'landsat8' %}">LANDSAT 8</a>
-        <a target="_blank" href="{% url 'spot6' %}">SPOT 6</a>
-        <a target="_blank" href="{% url 'spot7' %}">SPOT 7</a>
+        <a class="boton" href="{% url 'ssar-submenu' %}">SSAR</a>
+        <a class="boton" href="{% url 'sar-submenu' %}">SAR</a>
+        <a class="boton" href="{% url 'saocom1a-menu' %}">SAOCOM 1A</a>
+        <a class="boton" href="{% url 'saocom1b-menu' %}">SAOCOM 1B</a>
+        <a class="boton" target="_blank" href="{% url 'metopb' %}">METOP B</a>
+        <a class="boton" target="_blank" href="{% url 'metopc' %}">METOP C</a>
+        <a class="boton" target="_blank" href="{% url 'aqua' %}">AQUA</a>
+        <a class="boton" target="_blank" href="{% url 'terra' %}">TERRA</a>
+        <a class="boton" target="_blank" href="{% url 'landsat8' %}">LANDSAT 8</a>
+        <a class="boton" target="_blank" href="{% url 'spot6' %}">SPOT 6</a>
+        <a class="boton" target="_blank" href="{% url 'spot7' %}">SPOT 7</a>
         <a class="volver" href="{% url 'AVENGER-inicio' %}">VOLVER</a>
         <a class="logout" href="{% url 'AVENGER-logout' %}">LOGOUT</a>
     </nav>
     
 </body>
-</html>
+{% endblock %}

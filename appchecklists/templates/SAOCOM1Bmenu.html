@@ -1,47 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>SAOCOM 1B menu</title>
-    <style>
-        nav a{
-            text-align: center;
-            display: block;
-            text-decoration: none;
-            padding: 15px;
-            flex: block;
-            background-color: rgb(196, 226, 227);
-            color: white;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 24px;
-        }
-        nav a:hover{
-            background-color: rgb(147, 147, 197);
-            transition: background-color 0.5s, font-style 3s;
-            
-        }
-        h1 {
-            text-align: center;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            font-size: 36px;
-        }
-        .volver {
-            background-color: rgb(203, 217, 181);
+{% extends 'base.html' %}
 
-        }
-        .volver:hover {
-            background-color: rgb(162, 176, 141);
+{% load static %}
 
-        }
-    </style>
-</head>
+<h2 class="subtitulo">{% block subtitulo %}SAOCOM 1 B{% endblock %}</h2>
+{% block Contenido %}
 <body>
-    <h1>A<span style="color:blue">VENG</span>ER</h1>
     <nav>
-        <a target="_blank" href="{% url 'saocom1bett' %}">ETT</a>
-        <a target="_blank" href="{% url 'saocom1betc' %}">ETC</a>
+        <a class="boton" target="_blank" href="{% url 'saocom1bett' %}">ETT</a>
+        <a class="boton" target="_blank" href="{% url 'saocom1betc' %}">ETC</a>
         <a class="volver" href="{% url 'avenger-lista' %}">VOLVER</a>
         
     </nav>
     
 </body>
-</html>
+{% endblock %}

@@ -1,4 +1,11 @@
-<h1>SESION CERRADA </h1>
-<h2> Cerraste tu sesion </h2>
+{% extends 'base.html' %}
 
-<a href="{% url 'AVENGER-inicio' %}">INICIO</a>
+{% load static %}
+
+<h1 class="titulo">{% block titulo %}SESION CERRADA {% endblock %}</h1>
+<h2 class="subtitulo">{% block subtitulo %}Cerraste tu sesion{% endblock %}</h2>
+{% block Contenido %}
+
+<a class="volver" href="{% url 'AVENGER-inicio' %}">INICIO</a>
+
+{% endblock %}
