@@ -57,7 +57,7 @@ ROOT_URLCONF = 'AVENGER.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r"C:\Users\cesteban\Downloads\PYTHON\AVENGER\AVENGER\templates"],
+        'DIRS': [os.path.join(BASE_DIR, r"AVENGER\templates"),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -3,7 +3,6 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 36px;
 }
-
 .centrado {
     text-align: center;
 }
@@ -14,14 +13,14 @@
     padding: 15px;
     flex: block;
     background-color: rgb(196, 226, 227);
-    color: white;
+    color: rgb(91, 91, 91);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
 }
 .boton:hover{
+    color: white;
     background-color: rgb(147, 147, 197);
-    transition: background-color 0.5s, font-style 3s;
-    
+    transition: background-color 0.5s, font-style 3s;    
 }
 .logout {
     text-align: center;
@@ -29,12 +28,13 @@
     text-decoration: none;
     padding: 15px;
     flex: block;
-    color: white;
+    color: rgb(91, 91, 91);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
     background-color:rgb(193, 133, 133)
 }
-.logout:hover {
+.logout:hover {    
+    color: white;
     background-color:rgb(205, 70, 70);
     transition: background-color 0.5s, font-style 3s;
 }
@@ -44,15 +44,14 @@
     text-decoration: none;
     padding: 15px;
     flex: block;
-    color: white;
+    color: rgb(91, 91, 91);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 24px;
     background-color: rgb(203, 217, 181);
-
 }
 .volver:hover {
-    background-color: rgb(162, 176, 141);
-
+    background-color: rgb(162, 176, 141);    
+    color: white;
 }
 .subtitulo {
     text-align: center;
