@@ -7,19 +7,36 @@
 
 {% block Contenido%}
 
-{% if pasadas %}
-   {% for pasada in pasadas %}
    <style>
    li {
     font-size: 25px 
    }
+   table, th, td {border: 2px solid black;border-collapse: collapse;width: 100%;}
+   th,td {width:20%;}
+
   </style>
-    <li>
-      {{pasada}}
-    </li>
-    <br> <br>
-    {% endfor %}
-</ul>
+  {% if pasadas %}
+  
+    <table>
+      <tr>
+        <th>SATELITE</th>
+        <th>ORBITA</th>
+        <th>OPERADOR</th>
+        <th>FECHA</th>
+        <th>INCIDENTE</th>
+      </tr>
+      {% for pasada in pasadas %}
+      <tr>
+        <td>{{pasada.satelite}}</td>
+        <td>{{pasada.orbita}}</td>
+        <td>{{pasada.operador}}</td>
+        <td>{{pasada.fecha}}</td>
+        <td>{{pasada.incidente}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    
+
 {% else %}
 <p> No hay pasadas en la base de datos </p>
 {% endif %}
