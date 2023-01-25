@@ -25,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('applogin.urls')),
     path('', include('appchecklists.urls')),
+    path('', include('appmensajes.urls')),
 ]

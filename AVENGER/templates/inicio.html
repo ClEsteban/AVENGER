@@ -10,6 +10,7 @@
 {% if request.user.is_authenticated %}
 <a class="boton" href="{% url 'avenger-lista' %}">LISTA DE PASADAS</a>
 <a class="boton" href="{% url 'historial' %}">ARCHIVO</a>
+<a class="volver" href="{% url 'mensajes' %}">MENSAJE</a>
 
 <a class="logout" href="{% url 'AVENGER-logout' %}">LOGOUT</a>
 {% else %}
